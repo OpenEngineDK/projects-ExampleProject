@@ -11,16 +11,20 @@
 #include <Meta/Config.h>
 #include <Logging/Logger.h>
 #include <Logging/StreamLogger.h>
-#include <Core/GameEngine.h>
+#include <Core/Engine.h>
+
+// SimpleSetup
+#include <Utils/SimpleSetup.h>
 
 // Game factory
-#include "GameFactory.h"
+//#include "GameFactory.h"
 
 // name spaces that we will be using.
 // this combined with the above imports is almost the same as
 // fx. import OpenEngine.Logging.*; in Java.
 using namespace OpenEngine::Logging;
 using namespace OpenEngine::Core;
+using namespace OpenEngine::Utils;
 
 /**
  * Main method for the first quarter project of CGD.
@@ -35,10 +39,13 @@ int main(int argc, char** argv) {
     // Print usage info.
     logger.info << "========= Running OpenEngine Test Project =========" << logger.end;
 
+    // Create simple setup
+    SimpleSetup* setup = new SimpleSetup("Example Project Title");
     // Start the engine.
-    IGameEngine& engine = GameEngine::Instance();
-    engine.Start(new GameFactory());
+    setup->GetEngine().Start();
 
     // Return when the engine stops.
     return EXIT_SUCCESS;
 }
+
+

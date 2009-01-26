@@ -6,7 +6,6 @@ SET( PROJECT_NAME "ExampleProject")
 SET( PROJECT_SOURCES
   # Add all the cpp source files here
   main.cpp
-  GameFactory.cpp
 )
 
 # Include needed to use SDL under Mac OS X
@@ -26,9 +25,8 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME}
   OpenEngine_Logging
   OpenEngine_Display
   OpenEngine_Devices
-  OpenEngine_Renderers_OpenGL
   OpenEngine_Scene
   # Extension dependencies
   Extensions_SDL
-  Extensions_ExampleExtension
+  Extensions_SetupHelpers  
 )
